@@ -324,18 +324,52 @@ ul {
    =================================================================== */
 .service-section {
   background: var(--bg2);
+  padding: 6rem 0 5.5rem;
 }
 
-.chat-mockup-grid {
+.service-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
   align-items: start;
 }
 
+.service-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.service-side .section-header {
+  margin-bottom: 0;
+}
+
+.service-side .section-desc {
+  max-width: 23rem;
+}
+
+.service-layout .chat-mockup {
+  width: 80%;
+  min-width: 0;
+  justify-self: center;
+}
+
 @media (max-width: 900px) {
-  .chat-mockup-grid {
+  .service-layout {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
+    align-items: start;
+  }
+
+  .service-side {
+    justify-content: flex-start;
+  }
+
+  .service-layout .chat-mockup {
+    width: 100%;
+    justify-self: stretch;
   }
 }
 
@@ -350,8 +384,8 @@ ul {
 .chat-header {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.7rem 1rem;
+  gap: 0.55rem;
+  padding: 0.42rem 0.7rem;
   background: var(--surface2);
   border-bottom: 1px solid var(--border);
 }
@@ -368,15 +402,15 @@ ul {
 
 .chat-title {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.66rem;
   color: var(--text-muted);
 }
 
 .chat-messages {
-  padding: 1.5rem;
+  padding: 0.6rem 0.72rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.42rem;
 }
 
 .msg {
@@ -391,26 +425,26 @@ ul {
 .msg-agent {
   flex-direction: row;
   align-items: flex-start;
-  gap: 0.7rem;
+  gap: 0.38rem;
 }
 
 .msg-agent .msg-content {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0;
 }
 
 .msg-avatar {
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent), #c9461c);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 0.65rem;
+  font-size: 0.46rem;
   font-weight: 700;
   color: #fff;
   margin-top: 2px;
@@ -418,11 +452,11 @@ ul {
 
 .msg-bubble {
   display: inline-block;
-  padding: 0.7rem 1rem;
+  padding: 0.34rem 0.56rem;
   border-radius: 10px;
-  font-size: 0.875rem;
-  line-height: 1.65;
-  max-width: 460px;
+  font-size: 0.72rem;
+  line-height: 1.34;
+  max-width: 420px;
 }
 
 .msg-user .msg-bubble {
@@ -440,26 +474,188 @@ ul {
 .msg-bubble code {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  line-height: 1.9;
+  font-size: 0.6rem;
+  line-height: 1.26;
   color: var(--accent2);
+  overflow-wrap: anywhere;
 }
 
 .msg-time {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  margin-top: 0.2rem;
+  display: none;
 }
 
 .chat-input-bar {
-  padding: 0.8rem 1rem;
+  padding: 0.34rem 0.7rem;
   border-top: 1px solid var(--border);
   background: var(--surface2);
 }
 
+.spec-sheet-preview {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 0;
+  margin-top: 0;
+}
+
+.spec-sheet-preview::before {
+  content: none;
+}
+
+.spec-sheet-preview::after {
+  content: "";
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  width: min(100%, 316px);
+  height: 420px;
+  background: #f2f2ef;
+  border: 1px solid rgba(21, 19, 26, 0.08);
+  border-radius: 2px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: none;
+  z-index: 1;
+}
+
+.spec-sheet-paper {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 316px);
+  min-height: 420px;
+  padding: 0.95rem 1.05rem 0.95rem;
+  background: #fbfbfa;
+  border: 1px solid rgba(21, 19, 26, 0.12);
+  border-radius: 2px;
+  color: #15131a;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+  transform: none;
+  overflow: hidden;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-sheet-paper::before {
+  content: none;
+}
+
+.spec-sheet-register {
+  width: min(100%, 244px);
+  margin: 0.68rem auto 0;
+}
+
+.spec-sheet-register-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(21, 19, 26, 0.2);
+  color: rgba(21, 19, 26, 0.82);
+}
+
+.spec-sheet-register-label,
+.spec-sheet-register-value {
+  min-height: 16px;
+  padding: 0.08rem 0.28rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.4rem;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.spec-sheet-register-label {
+  border-right: 1px solid rgba(21, 19, 26, 0.2);
+}
+
+.spec-sheet-title-block {
+  margin-top: 6.4rem;
+  text-align: center;
+}
+
+.spec-sheet-org {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.spec-sheet-title {
+  margin-top: 0.75rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+}
+
+.spec-sheet-project {
+  margin-top: 0.72rem;
+  font-size: 0.5rem;
+  line-height: 1.65;
+  color: rgba(21, 19, 26, 0.72);
+}
+
+.spec-sheet-edition {
+  margin-top: 0.82rem;
+  font-size: 0.44rem;
+  line-height: 1.4;
+  color: rgba(21, 19, 26, 0.56);
+}
+
+.spec-sheet-date {
+  margin-top: 0.18rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.42rem;
+  line-height: 1.4;
+  color: rgba(21, 19, 26, 0.56);
+}
+
+@media (max-width: 900px) {
+  .service-section {
+    padding: 5rem 0 4.75rem;
+  }
+
+  .spec-sheet-preview {
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  .spec-sheet-preview::after {
+    top: 0.7rem;
+    right: auto;
+    left: 50%;
+    transform: translateX(-48%);
+  }
+
+  .spec-sheet-paper {
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .spec-sheet-preview::after {
+    width: calc(100% - 18px);
+    height: 410px;
+  }
+
+  .spec-sheet-paper {
+    width: min(100%, 340px);
+    min-height: 410px;
+    padding: 0.9rem 0.95rem 0.9rem;
+  }
+
+  .spec-sheet-register {
+    width: min(100%, 244px);
+    margin-top: 0.68rem;
+  }
+
+  .spec-sheet-title-block {
+    margin-top: 5.6rem;
+  }
+}
+
 .chat-placeholder {
-  font-size: 0.875rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
 }
 
@@ -594,6 +790,12 @@ ul {
   color: var(--purple);
 }
 
+.work-tag-legacy {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.28);
+  color: var(--amber);
+}
+
 .work-tag-sci {
   background: rgba(74, 222, 128, 0.1);
   border-color: rgba(74, 222, 128, 0.28);
@@ -688,6 +890,12 @@ ul {
 .accent-cyan   { color: var(--accent2); }
 .accent-orange { color: var(--accent); }
 .accent-purple { color: var(--purple); }
+
+.work-tag-tool {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.28);
+  color: var(--amber);
+}
 
 /* --- Circuit Schematic --- */
 .circuit-mockup {
@@ -869,6 +1077,91 @@ ul {
   color: var(--accent);
 }
 
+/* --- Legacy VB Migration Visual --- */
+.legacy-migration-visual {
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  border-radius: 12px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.12), transparent 48%),
+    linear-gradient(180deg, rgba(13, 17, 23, 0.98), rgba(7, 10, 18, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.legacy-visual-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 0.95rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.legacy-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.legacy-status-old {
+  color: var(--amber);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.legacy-status-new {
+  color: var(--accent2);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.legacy-transition {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(232, 224, 208, 0.5);
+}
+
+.legacy-panels {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0.95rem;
+}
+
+.legacy-panel {
+  padding: 0.9rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.legacy-panel-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.legacy-panel-title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.legacy-panel-text {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
 /* --- MATLAB Visual --- */
 .matlab-visual {
   background: #0a0f0a;
@@ -930,7 +1223,76 @@ ul {
 }
 
 /* ===================================================================
-   04 — CONTACT
+   04 - IN DEVELOPMENT
+   =================================================================== */
+.product-section {
+  background:
+    radial-gradient(circle at top right, rgba(0, 212, 255, 0.08), transparent 32%),
+    linear-gradient(180deg, var(--bg3) 0%, var(--bg) 100%);
+}
+
+.product-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 420px);
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(0, 212, 255, 0.03)),
+    rgba(10, 12, 22, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.product-copy {
+  min-width: 0;
+}
+
+.product-note {
+  max-width: 540px;
+  margin-bottom: 1.25rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid rgba(0, 212, 255, 0.35);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.product-visual-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  background: #08111b;
+}
+
+.serial-bridge-visual {
+  padding: 1rem;
+  background:
+    radial-gradient(circle at center, rgba(255, 107, 53, 0.08), transparent 40%),
+    linear-gradient(180deg, rgba(8, 17, 27, 0.98), rgba(5, 10, 18, 0.98));
+}
+
+.serial-bridge-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.serial-bridge-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.2rem 0.25rem 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ===================================================================
+   05 - CONTACT
    =================================================================== */
 .contact-section {
   background: var(--bg);
@@ -1026,6 +1388,10 @@ ul {
     display: none;
   }
 
+  .product-card {
+    grid-template-columns: 1fr;
+  }
+
   .nav-links {
     display: none;
   }
@@ -1059,5 +1425,14 @@ ul {
     transform: rotate(90deg);
     align-self: flex-start;
     margin-left: 1rem;
+  }
+
+  .product-card {
+    padding: 1.25rem;
+  }
+
+  .serial-bridge-caption {
+    flex-direction: column;
+    gap: 0.35rem;
   }
 }

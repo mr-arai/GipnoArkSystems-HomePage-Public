@@ -26,9 +26,10 @@
         GipnoArkSystems
       </a>
       <ul class="nav-links">
-        <li><a href="#service">サービス</a></li>
-        <li><a href="#flow">開発フロー</a></li>
-        <li><a href="#works">実績</a></li>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#process">開発フロー</a></li>
+        <li><a href="#client-work">受注実績</a></li>
+        <li><a href="#own-products">自社製品</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
     </div>
@@ -49,8 +50,8 @@
           アイデアを動くプロダクトへ。
         </p>
         <div class="hero-cta">
-          <a href="#service" class="btn btn-primary">サービスを見る</a>
-          <a href="#works" class="btn btn-outline">開発実績</a>
+          <a href="#services" class="btn btn-primary">サービスを見る</a>
+          <a href="#client-work" class="btn btn-outline">受注実績</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -60,18 +61,39 @@
   </section>
 
   <!-- サービス：要求仕様の共同作成 -->
-  <section id="service" class="section service-section">
+  <section id="services" class="section service-section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-label">01 / Service</span>
-        <h2 class="section-title">要件定義から、<br>一緒に作ります。</h2>
-        <p class="section-desc">仕様書がなくても大丈夫。チャットベースの打ち合わせで、アイデアを整理しながら要求仕様書を共同作成します。</p>
-      </div>
-      <div class="chat-mockup-grid">
+      <div class="service-layout">
+        <div class="service-side">
+          <div class="section-header">
+            <span class="section-label">01 / Service</span>
+            <h2 class="section-title">要件定義から、<br>一緒に作ります。</h2>
+            <p class="section-desc">仕様書がなくても大丈夫。チャットベースの打ち合わせで、要件整理から実装方針の提案まで一緒に進めます。</p>
+          </div>
+
+          <div class="spec-sheet-preview" aria-hidden="true">
+            <div class="spec-sheet-paper">
+              <div class="spec-sheet-register">
+                <div class="spec-sheet-register-row">
+                  <span class="spec-sheet-register-label">文書番号</span>
+                  <span class="spec-sheet-register-value">GAS-RS-001</span>
+                </div>
+              </div>
+              <div class="spec-sheet-title-block">
+                <p class="spec-sheet-org">GipnoArkSystems</p>
+                <div class="spec-sheet-title">要求仕様書</div>
+                <p class="spec-sheet-project">計測デバイス制御・解析連携システム</p>
+                <p class="spec-sheet-edition">第1.0版</p>
+                <p class="spec-sheet-date">2026年03月11日</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="chat-mockup">
           <div class="chat-header">
             <span class="chat-status"></span>
-            <span class="chat-title">打ち合わせチャット — 要件整理</span>
+            <span class="chat-title">打ち合わせチャット — 要件整理と実装提案</span>
           </div>
           <div class="chat-messages">
             <div class="msg msg-user">
@@ -94,64 +116,52 @@
               <div class="msg-avatar">GA</div>
               <div class="msg-content">
                 <div class="msg-bubble">
-                  ブラウザのSTARTを押した瞬間をPython側で感知したい、ということですね。<br>
-                  シンプルな実現案をご提案します：<br><br>
+                  ブラウザのSTART操作と、同じPC上のPython処理を同期させたい、という要件ですね。<br>
+                  まずはシンプルな実現案として、次の構成が考えられます。<br><br>
                   <code>■ 提案構成</code>
                   <code>- ブラウザを介さず Python から直接</code>
                   <code>  デバイスIP (192.168.x.x) へアクセス</code>
                   <code>- Python がトリガー発行 + 顧客コードを</code>
                   <code>  同一フロー内で実行</code>
-                  <br>Pythonがそのままデバイスに接続してトリガースタートまで担う構成です。実装イメージを共有しましょうか？
+                  <br>Pythonがそのままデバイスに接続してトリガー発行まで担う形です。これなら開始タイミングを1つの制御フローにまとめられます。
                 </div>
                 <span class="msg-time">14:07</span>
               </div>
             </div>
-          </div>
-          <div class="chat-input-bar">
-            <span class="chat-placeholder">メッセージを入力…</span>
-          </div>
-        </div>
-
-        <div class="chat-mockup">
-          <div class="chat-header">
-            <span class="chat-status"></span>
-            <span class="chat-title">打ち合わせチャット — 機能提案</span>
-          </div>
-          <div class="chat-messages">
             <div class="msg msg-user">
-              <div class="msg-bubble">現在PyGameで実装した計測ソフトをマウスクリックで開始する仕様にしています。この開始タイミングをアイトラッカーと同期させることは可能でしょうか？</div>
-              <span class="msg-time">15:12</span>
+              <div class="msg-bubble">なるほどです。ちなみに現在はPyGameで実装した計測ソフトをマウスクリックで開始しています。この開始タイミングもアイトラッカーと同期できますか？</div>
+              <span class="msg-time">14:08</span>
             </div>
             <div class="msg msg-agent">
               <div class="msg-avatar">GA</div>
               <div class="msg-content">
                 <div class="msg-bubble">
-                  先ほどご提案した構成であれば、既存のPythonコードをそのまま活用できます。Webスクレイピングの基礎知識が少し必要になりますが、対象サイトの構造がシンプルなので習得コストは低いです。</div>
-                <span class="msg-time">15:13</span>
+                  はい、可能です！先ほどの構成であれば既存のPythonコードを活かしつつ、アイトラッカーへのトリガー送信とPyGame側の開始処理を同じスクリプト内で順序よく制御できます。</div>
+                <span class="msg-time">14:09</span>
               </div>
             </div>
             <div class="msg msg-user">
-              <div class="msg-bubble">ありがとうございます！それはぜひ提案してみます。</div>
-              <span class="msg-time">15:14</span>
+              <div class="msg-bubble">研究用途なので、Pythonから計測機器と解析ツールをまとめて扱える形だと助かります。</div>
+              <span class="msg-time">14:10</span>
             </div>
             <div class="msg msg-agent">
               <div class="msg-avatar">GA</div>
               <div class="msg-content">
                 <div class="msg-bubble">
-                  追加でご提案があります。デバイス側にシンプルなAPIを実装すると、さらに使いやすくなります：<br><br>
+                  であれば、デバイス側にシンプルなAPIを用意する案が相性よいです。<br><br>
                   <code>GET /api/trigger?state=on</code>
                   <code>→ これだけでトリガーON</code>
-                  <code># Python 1行で呼べます</code>
+                  <code># Python から1行で呼び出し可能</code>
                   <code>requests.get("http://192.168.x.x</code>
                   <code>  /api/trigger?state=on")</code>
-                  <br>研究者の方がPythonから計測機器・解析ツールを一括制御できる構成になります。実装は5人日ほどの見積もりです。
+                  <br>研究者の方がPythonから計測機器と解析ツールを一括制御しやすい構成になります。利用環境と必要な同期精度を確認したうえで、初期実装は5人日前後が目安です。
                 </div>
-                <span class="msg-time">15:15</span>
+                <span class="msg-time">14:11</span>
               </div>
             </div>
             <div class="msg msg-user">
               <div class="msg-bubble">それは刺さりますね！計測機器と解析ツールを一気に連携できるのは強い。ぜひ進めましょう！</div>
-              <span class="msg-time">15:17</span>
+              <span class="msg-time">14:12</span>
             </div>
           </div>
           <div class="chat-input-bar">
@@ -163,7 +173,7 @@
   </section>
 
   <!-- 開発フロー -->
-  <section id="flow" class="section flow-section">
+  <section id="process" class="section flow-section">
     <div class="container">
       <div class="section-header">
         <span class="section-label">02 / Process</span>
@@ -228,22 +238,23 @@
     </div>
   </section>
 
-  <!-- 開発実績 -->
-  <section id="works" class="section works-section">
+  <!-- 受注実績 -->
+  <section id="client-work" class="section works-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">03 / Works</span>
-        <h2 class="section-title">開発実績</h2>
+        <span class="section-label">03 / Client Work</span>
+        <h2 class="section-title">受注実績</h2>
+        <p class="section-desc">以下はお客様から受注して開発した案件の一例です。自社で企画・開発している製品は、この下の「開発中の自社製品」に分けて掲載しています。</p>
       </div>
 
-      <!-- ペースタイマーデバイス：電子機器 -->
+      <!-- 特殊仕様タイマーデバイス：電子機器 -->
       <article class="work-item work-featured">
         <div class="work-meta">
           <span class="work-tag">電子機器</span>
           <span class="work-year">Hardware / Embedded</span>
         </div>
         <div class="work-text">
-          <h3 class="work-title">ペースタイマーデバイス</h3>
+          <h3 class="work-title">特殊仕様タイマーデバイス</h3>
           <p class="work-desc">PIC32マイコン上で動作するスタンドアロン組込み機器。SSD1306
             OLEDにSPIでペース（秒/m）・経過時間・換算距雦をリアルタイム表示。プリセット管理UI・デバウンス・長押し検出・自動スリープを含む完全なファームウェアを一貫開発。</p>
           <ul class="work-stack">
@@ -259,12 +270,12 @@
             <div class="visual-card-header">
               <span class="header-label accent-cyan">SCHEMATIC — 回路図</span>
             </div>
-            <img class="circuit-img" src="img/schematic.png" alt="ペースタイマーデバイス 回路図" />
+            <img class="circuit-img" src="img/schematic.png" alt="タイマーデバイス 回路図" />
           </div>
           <!-- 実機モック -->
           <div class="work-visual-card device-mockup">
             <div class="visual-card-header">
-              <span class="header-label accent-orange">転倒検知デバイス v1.0 実機</span>
+              <span class="header-label accent-orange">タイマーデバイス v1.0 実機</span>
             </div>
             <svg class="device-svg" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg"
               aria-label="転倒検知デバイス実機モックアップ">
@@ -272,7 +283,7 @@
               <rect x="40" y="30" width="200" height="140" rx="6" fill="#0d2b1a" stroke="#2d6a4f" stroke-width="1.5" />
               <!-- シルク印刷 -->
               <text x="160" y="52" text-anchor="middle" fill="#3a7a5a" font-size="7"
-                font-family="JetBrains Mono, monospace">PaceTimer Rev1.0</text>
+                font-family="JetBrains Mono, monospace">TimerDevice Rev1.0</text>
               <!-- コンポーネント：MCU -->
               <rect x="90" y="65" width="60" height="50" rx="2" fill="#1a1a2e" stroke="#00d4ff" stroke-width="1" />
               <rect x="95" y="70" width="50" height="40" rx="1" fill="#0d0d20" />
@@ -332,7 +343,7 @@
             <div class="visual-card-header">
               <span class="header-label accent-purple">DEVICE CODE</span>
             </div>
-            <img class="circuit-img" src="img/code.png" alt="ペースタイマーデバイス コード" />
+            <img class="circuit-img" src="img/code.png" alt="タイマーデバイス コード" />
           </div>
         </div>
       </article>
@@ -415,6 +426,52 @@
         </div>
       </article>
 
+      <!-- VB6レガシーシステムのVB.NET移行：Windowsモダナイズ -->
+      <article class="work-item">
+        <div class="work-meta">
+          <span class="work-tag work-tag-legacy">レガシー刷新</span>
+          <span class="work-year">Windows / VB Migration</span>
+        </div>
+        <div class="work-main">
+          <div class="work-text">
+            <h3 class="work-title">VB6レガシーシステムのVB.NET移行</h3>
+            <p class="work-desc">既存の Visual Basic 6.0 製 GUI アプリケーションを、最新の VB.NET（WinForms）へ段階的に移行。VB6 のフォーム・モジュール資産を解析し、ファイル名・変数名の追跡性を保ちながら、安全性・保守性・将来性を高める形で刷新しました。</p>
+            <ul class="work-stack">
+              <li>Visual Basic 6.0 / .frm .frx .bas</li>
+              <li>VB.NET / WinForms</li>
+              <li>段階移行 / TODO 管理</li>
+              <li>UI標準化 / dotnet CLI</li>
+            </ul>
+          </div>
+          <div class="work-visual-side">
+            <div class="legacy-migration-visual" aria-label="VB6からVB.NETへの段階移行イメージ">
+              <div class="legacy-visual-header">
+                <span class="legacy-status legacy-status-old">LEGACY VB6</span>
+                <span class="legacy-transition" aria-hidden="true">→</span>
+                <span class="legacy-status legacy-status-new">MODERN VB.NET</span>
+              </div>
+              <div class="legacy-panels">
+                <section class="legacy-panel">
+                  <span class="legacy-panel-label">SOURCE ASSETS</span>
+                  <h4 class="legacy-panel-title">フォーム・モジュール資産を継承</h4>
+                  <p class="legacy-panel-text">.frm / .frx / .bas を起点に既存ロジックを読み解き、追跡性を保って移植。</p>
+                </section>
+                <section class="legacy-panel">
+                  <span class="legacy-panel-label">MIGRATION RULES</span>
+                  <h4 class="legacy-panel-title">段階移行のルールを明確化</h4>
+                  <p class="legacy-panel-text">未実装参照は TODO 化。UI は TableLayoutPanel / GroupBox を軸に標準化。</p>
+                </section>
+                <section class="legacy-panel">
+                  <span class="legacy-panel-label">TARGET</span>
+                  <h4 class="legacy-panel-title">VB.NET WinForms へ更新</h4>
+                  <p class="legacy-panel-text">dotnet CLI 中心の運用に寄せ、保守性と将来性を両立する構成へ刷新。</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <!-- 人体動力学シミュレーションツール：科学的解析 -->
       <article class="work-item">
         <div class="work-meta">
@@ -462,11 +519,127 @@ tau = M*ddq + C*dq + G;
     </div>
   </section>
 
+  <!-- 製品 -->
+  <section id="own-products" class="section product-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">04 / Own Product</span>
+        <h2 class="section-title">自社製品</h2>
+        <p class="section-desc">受注案件ではなく、GipnoArkSystems が自社で企画・開発している製品です。</p>
+      </div>
+
+      <article class="product-card">
+        <div class="product-copy">
+          <div class="work-meta">
+            <span class="work-tag work-tag-tool">自社製品</span>
+            <span class="work-year">Windows / Serial Bridge</span>
+          </div>
+          <h3 class="work-title">仮想 COM ブリッジツール（仮称）</h3>
+          <p class="work-desc">開発者向けツールです。仮想 COM ポートをペアで用意し、アプリケーション間やツール間の双方向通信を橋渡しできる構成を目指しています。</p>
+          <p class="product-note">実機を使った確認の前段や、既存ソフト同士の接続検証を進めやすくすることを想定しています。現時点では内部構成や詳細機能、画面仕様までは公開していません。</p>
+          <ul class="work-stack">
+            <li>Virtual COM Pair</li>
+            <li>Bidirectional Bridge</li>
+            <li>Developer Validation Tool</li>
+          </ul>
+        </div>
+
+        <div class="product-visual-card">
+          <div class="visual-card-header">
+            <span class="header-label accent-cyan">IN DEVELOPMENT - VIRTUAL COM BRIDGE</span>
+          </div>
+          <div class="serial-bridge-visual" role="img" aria-label="2つの仮想COMポートが綱のようなブリッジで双方向に接続されるイメージ">
+            <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="serialPortBody" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#121827" />
+                  <stop offset="100%" stop-color="#090d16" />
+                </linearGradient>
+                <linearGradient id="serialPortEdge" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#30425f" />
+                  <stop offset="100%" stop-color="#182334" />
+                </linearGradient>
+                <linearGradient id="ropeWarm" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#ff8d5a" />
+                  <stop offset="100%" stop-color="#ff6b35" />
+                </linearGradient>
+                <linearGradient id="ropeCool" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#77e8ff" />
+                  <stop offset="100%" stop-color="#00d4ff" />
+                </linearGradient>
+                <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <rect x="26" y="54" width="112" height="152" rx="16" fill="url(#serialPortBody)" stroke="url(#serialPortEdge)" stroke-width="1.5" />
+              <rect x="282" y="54" width="112" height="152" rx="16" fill="url(#serialPortBody)" stroke="url(#serialPortEdge)" stroke-width="1.5" />
+
+              <text x="82" y="84" text-anchor="middle" fill="#e8e0d0" font-size="18" font-family="Space Grotesk, Noto Sans JP, sans-serif" font-weight="700">COM A</text>
+              <text x="338" y="84" text-anchor="middle" fill="#e8e0d0" font-size="18" font-family="Space Grotesk, Noto Sans JP, sans-serif" font-weight="700">COM B</text>
+              <text x="82" y="103" text-anchor="middle" fill="#7a7a9a" font-size="9" font-family="JetBrains Mono, monospace">virtual endpoint</text>
+              <text x="338" y="103" text-anchor="middle" fill="#7a7a9a" font-size="9" font-family="JetBrains Mono, monospace">virtual endpoint</text>
+
+              <rect x="49" y="120" width="66" height="48" rx="8" fill="#05070d" stroke="#293548" stroke-width="1.2" />
+              <rect x="305" y="120" width="66" height="48" rx="8" fill="#05070d" stroke="#293548" stroke-width="1.2" />
+
+              <g fill="#9aa4b2">
+                <circle cx="67" cy="134" r="3.2" />
+                <circle cx="82" cy="134" r="3.2" />
+                <circle cx="97" cy="134" r="3.2" />
+                <circle cx="67" cy="144" r="3.2" />
+                <circle cx="82" cy="144" r="3.2" />
+                <circle cx="97" cy="144" r="3.2" />
+                <circle cx="67" cy="154" r="3.2" />
+                <circle cx="82" cy="154" r="3.2" />
+                <circle cx="97" cy="154" r="3.2" />
+                <circle cx="323" cy="134" r="3.2" />
+                <circle cx="338" cy="134" r="3.2" />
+                <circle cx="353" cy="134" r="3.2" />
+                <circle cx="323" cy="144" r="3.2" />
+                <circle cx="338" cy="144" r="3.2" />
+                <circle cx="353" cy="144" r="3.2" />
+                <circle cx="323" cy="154" r="3.2" />
+                <circle cx="338" cy="154" r="3.2" />
+                <circle cx="353" cy="154" r="3.2" />
+              </g>
+
+              <path d="M138 102 C184 66 236 66 282 102" stroke="url(#ropeWarm)" stroke-width="10" stroke-linecap="round" fill="none" filter="url(#softGlow)" />
+              <path d="M138 130 C184 166 236 166 282 130" stroke="url(#ropeCool)" stroke-width="10" stroke-linecap="round" fill="none" filter="url(#softGlow)" />
+              <path d="M138 158 C184 122 236 122 282 158" stroke="url(#ropeWarm)" stroke-width="10" stroke-linecap="round" fill="none" filter="url(#softGlow)" />
+
+              <path d="M150 86 H257" stroke="#62708a" stroke-width="1.4" stroke-dasharray="6 6" />
+              <polygon points="252,80 270,86 252,92" fill="#00d4ff" />
+              <path d="M270 174 H163" stroke="#62708a" stroke-width="1.4" stroke-dasharray="6 6" />
+              <polygon points="168,168 150,174 168,180" fill="#ff6b35" />
+
+              <rect x="176" y="112" width="68" height="36" rx="18" fill="#080810" stroke="#273449" stroke-width="1.2" />
+              <text x="210" y="127" text-anchor="middle" fill="#e8e0d0" font-size="9" font-family="JetBrains Mono, monospace">BRIDGE</text>
+              <text x="210" y="139" text-anchor="middle" fill="#7a7a9a" font-size="7" font-family="JetBrains Mono, monospace">TX &lt;-&gt; RX</text>
+
+              <text x="82" y="188" text-anchor="middle" fill="#7a7a9a" font-size="8" font-family="JetBrains Mono, monospace">attach / inspect</text>
+              <text x="338" y="188" text-anchor="middle" fill="#7a7a9a" font-size="8" font-family="JetBrains Mono, monospace">route / validate</text>
+            </svg>
+            <div class="serial-bridge-caption">
+              <span>COM endpoints</span>
+              <span>Bidirectional bridge</span>
+              <span>Developer workflow</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- お問い合わせ -->
   <section id="contact" class="section contact-section">
     <div class="container">
       <div class="contact-inner">
-        <span class="section-label">04 / Contact</span>
+        <span class="section-label">05 / Contact</span>
         <h2 class="section-title">お問い合わせ</h2>
         <p class="contact-desc">
           現在、新規案件のご依頼は受け付けておりません。<br>
