@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GipnoArkSystems — 要件定義から製品化まで</title>
+  <meta name="description" content="組み込み開発・Windowsアプリ・ブロックチェーン・科学解析——要件定義から製品化まで一貫開発。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="icon/icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="icon/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ナビゲーション -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="icon/icon-nav.png" alt="" class="nav-logo-icon">
+        GipnoArkSystems
+      </a>
+      <ul class="nav-links">
+        <li><a href="#service">サービス</a></li>
+        <li><a href="#flow">開発フロー</a></li>
+        <li><a href="#works">実績</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <p class="hero-label">// Hardware &times; Software &times; Analysis</p>
+      <h1 class="hero-title">
+        <span>要件定義から</span><br>
+        <span>製品化まで。</span>
+      </h1>
+      <p class="hero-desc">
+        組み込み開発・Windowsアプリ・ブロックチェーン・科学解析——<br>
+        アイデアを動くプロダクトへ。
+      </p>
+      <div class="hero-cta">
+        <a href="#service" class="btn btn-primary">サービスを見る</a>
+        <a href="#works" class="btn btn-outline">開発実績</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <img src="icon/icon-hero.png" alt="GipnoArkSystems icon" class="hero-icon">
+    </div>
+  </section>
+
+  <!-- サービス：要求仕様の共同作成 -->
+  <section id="service" class="section service-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">01 / Service</span>
+        <h2 class="section-title">要件定義から、<br>一緒に作ります。</h2>
+        <p class="section-desc">仕様書がなくても大丈夫。チャットベースの打ち合わせで、アイデアを整理しながら要求仕様書を共同作成します。</p>
+      </div>
+      <div class="chat-mockup-grid">
+        <div class="chat-mockup">
+          <div class="chat-header">
+            <span class="chat-status"></span>
+            <span class="chat-title">打ち合わせチャット — 要件整理</span>
+          </div>
+          <div class="chat-messages">
+            <div class="msg msg-user">
+              <div class="msg-bubble">計測デバイスのWebUIでトリガーを起動すると同時に、Pythonスクリプトを実行させることは可能でしょうか？</div>
+              <span class="msg-time">14:03</span>
+            </div>
+            <div class="msg msg-agent">
+              <div class="msg-avatar">GA</div>
+              <div class="msg-content">
+                <div class="msg-bubble">トリガーを操作するブラウザは、どの環境からアクセスするイメージでしょうか？スマートフォン側ですか、PCからでしょうか？</div>
+                <span class="msg-time">14:04</span>
+              </div>
+            </div>
+            <div class="msg msg-user">
+              <div class="msg-bubble">
+                PCのブラウザからデバイスのWebページを開いてトリガーを発行し、同じPC上に入れた顧客提供のPythonコードを起動したいイメージです。PC〜デバイス間はWi-Fi接続です。</div>
+              <span class="msg-time">14:06</span>
+            </div>
+            <div class="msg msg-agent">
+              <div class="msg-avatar">GA</div>
+              <div class="msg-content">
+                <div class="msg-bubble">
+                  ブラウザのSTARTを押した瞬間をPython側で感知したい、ということですね。<br>
+                  シンプルな実現案をご提案します：<br><br>
+                  <code>■ 提案構成</code>
+                  <code>- ブラウザを介さず Python から直接</code>
+                  <code>  デバイスIP (192.168.x.x) へアクセス</code>
+                  <code>- Python がトリガー発行 + 顧客コードを</code>
+                  <code>  同一フロー内で実行</code>
+                  <br>Pythonがそのままデバイスに接続してトリガースタートまで担う構成です。実装イメージを共有しましょうか？
+                </div>
+                <span class="msg-time">14:07</span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-bar">
+            <span class="chat-placeholder">メッセージを入力…</span>
+          </div>
+        </div>
+
+        <div class="chat-mockup">
+          <div class="chat-header">
+            <span class="chat-status"></span>
+            <span class="chat-title">打ち合わせチャット — 機能提案</span>
+          </div>
+          <div class="chat-messages">
+            <div class="msg msg-user">
+              <div class="msg-bubble">現在PyGameで実装した計測ソフトをマウスクリックで開始する仕様にしています。この開始タイミングをアイトラッカーと同期させることは可能でしょうか？</div>
+              <span class="msg-time">15:12</span>
+            </div>
+            <div class="msg msg-agent">
+              <div class="msg-avatar">GA</div>
+              <div class="msg-content">
+                <div class="msg-bubble">
+                  先ほどご提案した構成であれば、既存のPythonコードをそのまま活用できます。Webスクレイピングの基礎知識が少し必要になりますが、対象サイトの構造がシンプルなので習得コストは低いです。</div>
+                <span class="msg-time">15:13</span>
+              </div>
+            </div>
+            <div class="msg msg-user">
+              <div class="msg-bubble">ありがとうございます！それはぜひ提案してみます。</div>
+              <span class="msg-time">15:14</span>
+            </div>
+            <div class="msg msg-agent">
+              <div class="msg-avatar">GA</div>
+              <div class="msg-content">
+                <div class="msg-bubble">
+                  追加でご提案があります。デバイス側にシンプルなAPIを実装すると、さらに使いやすくなります：<br><br>
+                  <code>GET /api/trigger?state=on</code>
+                  <code>→ これだけでトリガーON</code>
+                  <code># Python 1行で呼べます</code>
+                  <code>requests.get("http://192.168.x.x</code>
+                  <code>  /api/trigger?state=on")</code>
+                  <br>研究者の方がPythonから計測機器・解析ツールを一括制御できる構成になります。実装は5人日ほどの見積もりです。
+                </div>
+                <span class="msg-time">15:15</span>
+              </div>
+            </div>
+            <div class="msg msg-user">
+              <div class="msg-bubble">それは刺さりますね！計測機器と解析ツールを一気に連携できるのは強い。ぜひ進めましょう！</div>
+              <span class="msg-time">15:17</span>
+            </div>
+          </div>
+          <div class="chat-input-bar">
+            <span class="chat-placeholder">メッセージを入力…</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 開発フロー -->
+  <section id="flow" class="section flow-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">02 / Process</span>
+        <h2 class="section-title">PoC から製品化まで。</h2>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-num">01</div>
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="8" width="36" height="32" rx="3" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="18" x2="36" y2="18" stroke="currentColor" stroke-width="1.5" />
+              <line x1="12" y1="24" x2="30" y2="24" stroke="currentColor" stroke-width="1.5" />
+              <line x1="12" y1="30" x2="24" y2="30" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+          </div>
+          <h3 class="flow-step-title">要求仕様作成</h3>
+          <p class="flow-step-desc">チャットベースの打ち合わせで要件を整理。仕様書を共同作成します。</p>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-step">
+          <div class="flow-step-num">02</div>
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="8" y="8" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+              <rect x="26" y="8" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+              <rect x="8" y="26" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+              <rect x="26" y="26" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </div>
+          <h3 class="flow-step-title">PoC 設計</h3>
+          <p class="flow-step-desc">プロトタイプで技術的実現可能性を検証。リスクを早期に洗い出します。</p>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-step">
+          <div class="flow-step-num">03</div>
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2" />
+              <path d="M18 24 L22 28 L30 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 class="flow-step-title">実証・評価</h3>
+          <p class="flow-step-desc">実環境でのテストと評価。データを取得して性能を確認します。</p>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-step">
+          <div class="flow-step-num">04</div>
+          <div class="flow-step-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="10" y="6" width="28" height="36" rx="3" stroke="currentColor" stroke-width="2" />
+              <rect x="15" y="12" width="18" height="12" rx="1" stroke="currentColor" stroke-width="1.5" />
+              <line x1="15" y1="30" x2="33" y2="30" stroke="currentColor" stroke-width="1.5" />
+              <line x1="15" y1="36" x2="25" y2="36" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+          </div>
+          <h3 class="flow-step-title">製品化</h3>
+          <p class="flow-step-desc">量産設計・ファームウェア最終化・ドキュメント整備まで対応。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 開発実績 -->
+  <section id="works" class="section works-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">03 / Works</span>
+        <h2 class="section-title">開発実績</h2>
+      </div>
+
+      <!-- ペースタイマーデバイス：電子機器 -->
+      <article class="work-item work-featured">
+        <div class="work-meta">
+          <span class="work-tag">電子機器</span>
+          <span class="work-year">Hardware / Embedded</span>
+        </div>
+        <div class="work-text">
+          <h3 class="work-title">ペースタイマーデバイス</h3>
+          <p class="work-desc">PIC32マイコン上で動作するスタンドアロン組込み機器。SSD1306
+            OLEDにSPIでペース（秒/m）・経過時間・換算距雦をリアルタイム表示。プリセット管理UI・デバウンス・長押し検出・自動スリープを含む完全なファームウェアを一貫開発。</p>
+          <ul class="work-stack">
+            <li>C / PIC32MX</li>
+            <li>SPI (SSD1306 OLED)</li>
+            <li>ボタン入力 / デバウンス</li>
+            <li>スリープ・省電力制御</li>
+          </ul>
+        </div>
+        <div class="work-visuals-featured">
+          <!-- 回路図 -->
+          <div class="work-visual-card circuit-mockup">
+            <div class="visual-card-header">
+              <span class="header-label accent-cyan">SCHEMATIC — 回路図</span>
+            </div>
+            <img class="circuit-img" src="img/schematic.png" alt="ペースタイマーデバイス 回路図" />
+          </div>
+          <!-- 実機モック -->
+          <div class="work-visual-card device-mockup">
+            <div class="visual-card-header">
+              <span class="header-label accent-orange">転倒検知デバイス v1.0 実機</span>
+            </div>
+            <svg class="device-svg" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg"
+              aria-label="転倒検知デバイス実機モックアップ">
+              <!-- PCB外形 -->
+              <rect x="40" y="30" width="200" height="140" rx="6" fill="#0d2b1a" stroke="#2d6a4f" stroke-width="1.5" />
+              <!-- シルク印刷 -->
+              <text x="160" y="52" text-anchor="middle" fill="#3a7a5a" font-size="7"
+                font-family="JetBrains Mono, monospace">PaceTimer Rev1.0</text>
+              <!-- コンポーネント：MCU -->
+              <rect x="90" y="65" width="60" height="50" rx="2" fill="#1a1a2e" stroke="#00d4ff" stroke-width="1" />
+              <rect x="95" y="70" width="50" height="40" rx="1" fill="#0d0d20" />
+              <text x="160" y="94" text-anchor="middle" fill="#00d4ff" font-size="6"
+                font-family="JetBrains Mono, monospace">PIC32MX</text>
+              <text x="160" y="103" text-anchor="middle" fill="#00d4ff" font-size="5"
+                font-family="JetBrains Mono, monospace">110F016B</text>
+              <!-- ピン -->
+              <g fill="#a0a0a0" stroke="none">
+                <rect x="84" y="68" width="3" height="5" />
+                <rect x="84" y="76" width="3" height="5" />
+                <rect x="84" y="84" width="3" height="5" />
+                <rect x="84" y="92" width="3" height="5" />
+                <rect x="84" y="100" width="3" height="5" />
+                <rect x="153" y="68" width="3" height="5" />
+                <rect x="153" y="76" width="3" height="5" />
+                <rect x="153" y="84" width="3" height="5" />
+                <rect x="153" y="92" width="3" height="5" />
+                <rect x="153" y="100" width="3" height="5" />
+              </g>
+              <!-- OLED -->
+              <rect x="170" y="65" width="36" height="28" rx="1" fill="#1a1a2e" stroke="#ff6b35" stroke-width="0.8" />
+              <text x="188" y="82" text-anchor="middle" fill="#ff6b35" font-size="5"
+                font-family="JetBrains Mono, monospace">OLED</text>
+              <text x="188" y="90" text-anchor="middle" fill="#ff6b35" font-size="5"
+                font-family="JetBrains Mono, monospace">SSD1306</text>
+              <!-- 電源コネクタ -->
+              <rect x="55" y="68" width="24" height="16" rx="1" fill="#1a1a2e" stroke="#4ade80" stroke-width="0.8" />
+              <text x="67" y="79" text-anchor="middle" fill="#4ade80" font-size="5"
+                font-family="JetBrains Mono, monospace">PWR</text>
+              <!-- BLE アンテナライン -->
+              <path d="M178,105 Q200,95 210,85 Q220,75 215,65" stroke="#a78bfa" fill="none" stroke-width="1"
+                stroke-dasharray="2,2" />
+              <text x="218" y="62" fill="#a78bfa" font-size="5" font-family="JetBrains Mono, monospace">ANT</text>
+              <!-- 電源 LED -->
+              <circle cx="65" cy="140" r="5" fill="#4ade80" opacity="0.7" />
+              <text x="65" y="155" text-anchor="middle" fill="#4ade80" font-size="5"
+                font-family="JetBrains Mono, monospace">PWR</text>
+              <!-- ステータス LED -->
+              <circle cx="85" cy="140" r="5" fill="#3b82f6" opacity="0.7" />
+              <text x="85" y="155" text-anchor="middle" fill="#3b82f6" font-size="5"
+                font-family="JetBrains Mono, monospace">STS</text>
+              <!-- バッテリーコネクタ -->
+              <rect x="190" y="130" width="36" height="24" rx="2" fill="#1a1a2e" stroke="#f59e0b" stroke-width="0.8" />
+              <text x="208" y="144" text-anchor="middle" fill="#f59e0b" font-size="5"
+                font-family="JetBrains Mono, monospace">LIPO</text>
+              <text x="208" y="152" text-anchor="middle" fill="#f59e0b" font-size="5"
+                font-family="JetBrains Mono, monospace">BAT</text>
+              <!-- パターン線 -->
+              <path d="M90,90 L85,90 L85,140" stroke="#1e3a2e" fill="none" stroke-width="1.5" />
+              <path d="M160,85 L170,85" stroke="#1e3a2e" fill="none" stroke-width="1.5" />
+              <path d="M79,76 L67,76 L67,84" stroke="#1e3a2e" fill="none" stroke-width="1.5" />
+            </svg>
+          </div>
+          <!-- コード -->
+          <div class="work-visual-card code-mockup">
+            <div class="visual-card-header">
+              <span class="header-label accent-purple">DEVICE CODE</span>
+            </div>
+            <img class="circuit-img" src="img/code.png" alt="ペースタイマーデバイス コード" />
+          </div>
+        </div>
+      </article>
+
+      <!-- 分散型取引所Webアプリ：ブロックチェーンWEBアプリ -->
+      <article class="work-item">
+        <div class="work-meta">
+          <span class="work-tag work-tag-web">ブロックチェーン Web</span>
+          <span class="work-year">DeFi / Fullstack</span>
+        </div>
+        <div class="work-main">
+          <div class="work-text">
+            <h3 class="work-title">分散型取引所Webアプリ</h3>
+            <p class="work-desc">分散型取引所（DEX）Webアプリケーション。スマートコントラクトとフロントエンドをフルスタックで開発。オンチェーンでのトークンスワップを実現。</p>
+            <ul class="work-stack">
+              <li>Solidity</li>
+              <li>Ethers.js</li>
+              <li>React</li>
+              <li>Hardhat</li>
+            </ul>
+          </div>
+          <div class="work-visual-side">
+            <div class="blockchain-visual">
+              <div class="block">
+                <span class="block-label">Block N</span>
+                <span class="block-hash">0x4a3f…c2e1</span>
+              </div>
+              <div class="chain-link" aria-hidden="true">&#9135;</div>
+              <div class="block block-active">
+                <span class="block-label">Block N+1</span>
+                <span class="block-hash">Swap TX</span>
+                <span class="block-detail">0.5 ETH → 1200 TOKEN</span>
+              </div>
+              <div class="chain-link" aria-hidden="true">&#9135;</div>
+              <div class="block">
+                <span class="block-label">Block N+2</span>
+                <span class="block-hash">0x9e1c…a7f3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 計測・管理システム群：Winアプリ＋基板 -->
+      <article class="work-item">
+        <div class="work-meta">
+          <span class="work-tag work-tag-win">Windows + 基板</span>
+          <span class="work-year">Hardware &times; Software</span>
+        </div>
+        <div class="work-main">
+          <div class="work-text">
+            <h3 class="work-title">計測・管理システム群</h3>
+            <p class="work-desc">Windowsアプリと専用基板を組み合わせた計測・管理システム群。USB/シリアル通信でハードウェアとリアルタイム連携し、データの可視化・制御を実現。</p>
+            <ul class="work-stack">
+              <li>C# / WPF</li>
+              <li>USB-CDC / UART</li>
+              <li>マイコン制御基板</li>
+              <li>リアルタイム通信</li>
+            </ul>
+          </div>
+          <div class="work-visual-side">
+            <div class="hw-sw-bridge">
+              <div class="hw-box">
+                <div class="hw-box-label">専用基板</div>
+                <div class="hw-box-detail">マイコン + センサー</div>
+              </div>
+              <div class="bridge-line">
+                <span class="bridge-proto">USB / UART</span>
+                <svg width="90" height="20" viewBox="0 0 90 20" aria-hidden="true">
+                  <line x1="0" y1="10" x2="75" y2="10" stroke="#ff6b35" stroke-width="2" stroke-dasharray="6,4" />
+                  <polygon points="68,4 80,10 68,16" fill="#ff6b35" />
+                </svg>
+              </div>
+              <div class="sw-box">
+                <div class="sw-box-label">Windows App</div>
+                <div class="sw-box-detail">リアルタイム可視化</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 人体動力学シミュレーションツール：科学的解析 -->
+      <article class="work-item">
+        <div class="work-meta">
+          <span class="work-tag work-tag-sci">科学的解析</span>
+          <span class="work-year">Simulation / Biomechanics</span>
+        </div>
+        <div class="work-main">
+          <div class="work-text">
+            <h3 class="work-title">人体動力学シミュレーションツール</h3>
+            <p class="work-desc">人体動力学シミュレーション・解析ツール。MATLABと連携した高精度な数値計算を実現。バイオメカニクスデータの取得・処理・可視化を一括で行います。</p>
+            <ul class="work-stack">
+              <li>MATLAB / Simulink</li>
+              <li>C++（計算コア）</li>
+              <li>Python（データ処理）</li>
+              <li>バイオメカニクス解析</li>
+            </ul>
+          </div>
+          <div class="work-visual-side">
+            <div class="matlab-visual">
+              <div class="matlab-header">
+                <span class="matlab-dot"></span>
+                <span class="matlab-title">biomech_sim.m</span>
+              </div>
+              <pre class="matlab-code"><span class="m-kw">%</span> <span class="m-cm">Inverse dynamics solver</span>
+M  = <span class="m-fn">mass_matrix</span>(q);
+C  = <span class="m-fn">coriolis</span>(q, dq);
+G  = <span class="m-fn">gravity</span>(q);
+tau = M*ddq + C*dq + G;
+<span class="m-fn">plot</span>(t, tau, <span class="m-str">'LineWidth'</span>, 2)</pre>
+              <figure class="matlab-graph" aria-label="動力学シミュレーション結果グラフ">
+                <svg viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0" y1="80" x2="220" y2="80" stroke="#1f2937" stroke-width="1" />
+                  <line x1="0" y1="0" x2="0" y2="80" stroke="#1f2937" stroke-width="1" />
+                  <polyline points="0,68 22,61 44,45 66,38 88,50 110,33 132,27 154,39 176,31 198,21 220,24"
+                    stroke="#ff6b35" stroke-width="2" fill="none" />
+                  <polyline points="0,75 22,70 44,64 66,58 88,62 110,54 132,51 154,56 176,48 198,44 220,46"
+                    stroke="#00d4ff" stroke-width="1.5" fill="none" stroke-dasharray="4,3" />
+                </svg>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="contact-inner">
+        <span class="section-label">04 / Contact</span>
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="contact-desc">
+          現在、新規案件のご依頼は受け付けておりません。<br>
+          受付再開の際は改めてご案内いたします。
+        </p>
+        <button class="btn btn-primary btn-large" disabled>現在受付停止中</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">GipnoArkSystems</span>
+        <span class="footer-copy">&copy; 2026 GipnoArkSystems. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
